@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24229bc258a45b4482d23c0b0380e22, type: 3}
+  m_Name: CommonPistol
+  m_EditorClassIdentifier: 
+  _mass: {fileID: 11400000, guid: fdf32d6c4b59dc345916c7d604c7d078, type: 2}
+  _value: 30
+  _name: RustyBow
+  _damage: {fileID: 11400000, guid: 5bc3334c1ca06bf4186ef978646143d1, type: 2}
+  _penetration: {fileID: 11400000, guid: a86579ea32294964abc6b634e3be1ab6, type: 2}
+  _damageType: 0
+  _damageEffectTypes: 0
+  _speed: {fileID: 11400000, guid: d6d99267f6bf9f948a954772e15260db, type: 2}
+  _scanWeaponRadius: {fileID: 11400000, guid: 73648e249aa533942b90164dde5a01d7, type: 2}
+  _icon: {fileID: 21300000, guid: 79a9e1fbcbceb1e41b79caf913211970, type: 3}
+  _weaponType: 2
