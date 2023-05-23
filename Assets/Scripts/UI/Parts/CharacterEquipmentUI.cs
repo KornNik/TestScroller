@@ -5,7 +5,7 @@ using SideScroller.Model.Item;
 
 namespace SideScroller.UI.Parts
 {
-    class CharacterEquipmentUI : MonoBehaviour, IListenerScreen
+    class CharacterEquipmentUI : MonoBehaviour
     {
         #region Fields
 
@@ -15,7 +15,7 @@ namespace SideScroller.UI.Parts
         [SerializeField] private WeaponEquipmentCell _weaponEquipmentCell;
         [SerializeField] private ArmorEquipmentCell[] _armorEquipmentCells;
 
-        private CharacterMenu _characterMenu;
+        protected CharacterInventoryUI _inventoryUI;
 
         #endregion
 
@@ -24,26 +24,40 @@ namespace SideScroller.UI.Parts
 
         private void Awake()
         {
-
+            _inventoryUI = FindObjectOfType<CharacterInventoryUI>();
+            FillDefault();
         }
         private void OnEnable()
         {
-            ScreenInterface.GetInstance().AddObserver(Types.ScreenTypes.InventoryMenu, this);
-
             EquipmentEnabledUI?.Invoke(_weaponEquipmentCell,_armorEquipmentCells);
+
+            _inventoryUI.InventoryItemClick += OnInventoryItemClick;
+            EquipmentItemClick += OnEquipmentItemClick;
         }
         private void OnDisable()
         {
-            _characterMenu.InventoryUI.InventoryItemClick -= OnInventoryItemClick;
+            _inventoryUI.InventoryItemClick -= OnInventoryItemClick;
             EquipmentItemClick -= OnEquipmentItemClick;
-
-            ScreenInterface.GetInstance().RemoveObserver(Types.ScreenTypes.InventoryMenu, this);
         }
-
         #endregion
 
 
         #region Methods
+
+        private void FillDefault()
+        {
+            if (_weaponEquipmentCell.IsEmpty)
+            {
+                _weaponEquipmentCell.EmptyCell();
+            }
+            for (int i = 0; i < _armorEquipmentCells.Length; i++)
+            {
+                if (_armorEquipmentCells[i].IsEmpty)
+                {
+                    _armorEquipmentCells[i].EmptyCell();
+                }
+            }
+        }
 
         private void AddEquipmentInUI(BaseItem item)
         {
@@ -104,30 +118,6 @@ namespace SideScroller.UI.Parts
         private void OnEquipmentItemClick(BaseItem item)
         {
             RemoveEquipmentFromUI(item);
-        }
-
-        #endregion
-
-
-        #region IListnerScreen
-
-        public void ShowScreen()
-        {
-            if (_characterMenu == null)
-            {
-                _characterMenu = ScreenInterface.GetInstance().CurrentWindow as CharacterMenu;
-
-                if (_characterMenu is CharacterMenu)
-                {
-                    _characterMenu.InventoryUI.InventoryItemClick += OnInventoryItemClick;
-                    EquipmentItemClick += OnEquipmentItemClick;
-                }
-            }
-        }
-
-        public void HideScreen()
-        {
-
         }
 
         #endregion

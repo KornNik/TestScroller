@@ -26,8 +26,6 @@ namespace SideScroller.Controller
 
         private void OnDisable()
         {
-            ScreenInterface.GetInstance().RemoveObserver(ScreenTypes.GameMenu, this);
-
             _gameMenu.Attack -= Attack;
         }
 

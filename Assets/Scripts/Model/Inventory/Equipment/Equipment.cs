@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using SideScroller.UI;
+using SideScroller.UI.Types;
 using SideScroller.UI.Parts;
 using SideScroller.Model.Item;
 using SideScroller.Model.Unit;
@@ -15,9 +16,9 @@ namespace SideScroller.Model.Inventory
         private Weapon _weapon;
         private ArmorPlaces _armor;
         private BaseUnit _unit;
-        private CharacterMenu _characterMenu;
-        private CharacterEquipmentUI _equipmentUI;
-        private CharacterInventoryUI _inventoryUI;
+
+        protected CharacterEquipmentUI _equipmentUI;
+        protected CharacterInventoryUI _inventoryUI;
 
         #endregion
 
@@ -35,16 +36,16 @@ namespace SideScroller.Model.Inventory
         public Equipment(BaseUnit unit)
         {
             _unit = unit;
-            ScreenInterface.GetInstance().AddObserver(UI.Types.ScreenTypes.InventoryMenu, this);
+            ScreenInterface.GetInstance().AddObserver(ScreenTypes.InventoryMenu, this);
         }
 
         ~Equipment()
         {
+            ScreenInterface.GetInstance().RemoveObserver(ScreenTypes.InventoryMenu, this);
+
             _equipmentUI.EquipmentEnabledUI -= CheckEquipment;
             _equipmentUI.EquipmentItemClick -= OnEquipmentItemClick;
             _inventoryUI.InventoryItemClick -= OnInventoryItemClick;
-
-            ScreenInterface.GetInstance().RemoveObserver(UI.Types.ScreenTypes.InventoryMenu, this);
         }
 
         #endregion
@@ -57,14 +58,14 @@ namespace SideScroller.Model.Inventory
             if (item is Weapon)
             {
                 EquipWeapon(item as Weapon);
-                RenderVisibility.SpriteRenderVisibilityChange(item.transform, item.ItemSpriteRenderer, true);
             }
             else if (item is CommonArmor)
             {
                 EquipArmor(item as CommonArmor);
-                RenderVisibility.SpriteRenderVisibilityChange(item.transform, item.ItemSpriteRenderer, true);
-                ColliderEnabler.ColliderEnabledChanger(item.transform, item.ItemCollider, false);
             }
+
+            RenderVisibility.SpriteRenderVisibilityChange(item.transform, item.ItemSpriteRenderer, true);
+            ColliderEnabler.ColliderEnabledChanger(item.transform, item.ItemCollider, false);
 
             _unit.InventoryEventManager.EquipmentChanged?.Invoke();
         }
@@ -73,37 +74,21 @@ namespace SideScroller.Model.Inventory
         {
             Unequip(_weapon);
             _weapon = weapon;
-            _weapon.transform.parent = _unit.InventoryTransform;
+            _weapon.transform.parent = _unit.WeaponPlace;
             _weapon.transform.localPosition = Vector3.zero;
             _weapon.transform.localRotation = Quaternion.identity;
+            var autoAim = _weapon.GetComponent<AutoAim>();
+            if (autoAim)
+            {
+                autoAim.enabled = true;
+            }
             _unit.UnitBoolStates.IsWeaponOut = true;
             _unit.UnitEventManager.WeaponOut?.Invoke(true);
-            ColliderEnabler.ColliderEnabledChanger(_weapon.transform, _weapon.ItemCollider, true);
         }
         private void EquipArmor(CommonArmor armor)
         {
-            switch (armor.ArmorType)
-            {
-                case ArmorPlaceTypes.Hands:
-                    Unequip(_armor.Hands);
-                    _armor.Hands = armor;
-                    break;
-                case ArmorPlaceTypes.Legs:
-                    Unequip(_armor.Legs);
-                    _armor.Legs = armor;
-                    break;
-                case ArmorPlaceTypes.Body:
-                    Unequip(_armor.Body);
-                    _armor.Body = armor;
-                    break;
-                case ArmorPlaceTypes.Head:
-                    Unequip(_armor.Head);
-                    _armor.Head = armor;
-                    break;
-                default:
-
-                    break;
-            }
+            _armor.SetArmor(armor);
+            armor.transform.position = _unit.InventoryTransform.position;
         }
 
         private void Unequip(BaseItem item)
@@ -113,10 +98,16 @@ namespace SideScroller.Model.Inventory
                 _weapon = null;
                 _unit.UnitBoolStates.IsWeaponOut = false;
                 _unit.UnitEventManager.WeaponOut?.Invoke(false);
+                var autoAim = _weapon.GetComponent<AutoAim>();
+                if (autoAim)
+                {
+                    autoAim.enabled = true;
+                }
             }
             else if (item is CommonArmor)
             {
-
+                var armor = item as CommonArmor;
+                _armor.SetArmor(null);
             }
         }
         private void CheckEquipment(WeaponEquipmentCell weaponEquipmentCell, ArmorEquipmentCell[] armorEquipmentCells)
@@ -125,43 +116,21 @@ namespace SideScroller.Model.Inventory
             {
                 weaponEquipmentCell.FillCellInfo(_weapon);
             }
-            if (_armor.Body != null)
+            FillArmorEquipmentCell(_armor.GetArmor(ArmorPlaceTypes.Head), armorEquipmentCells);
+            FillArmorEquipmentCell(_armor.GetArmor(ArmorPlaceTypes.Hands), armorEquipmentCells);
+            FillArmorEquipmentCell(_armor.GetArmor(ArmorPlaceTypes.Body), armorEquipmentCells);
+            FillArmorEquipmentCell(_armor.GetArmor(ArmorPlaceTypes.Legs), armorEquipmentCells);
+        }
+
+        private void FillArmorEquipmentCell(CommonArmor armor, ArmorEquipmentCell[] armorEquipmentCells)
+        {
+            if (armor != null)
             {
                 for (int i = 0; i < armorEquipmentCells.Length; i++)
                 {
-                    if (armorEquipmentCells[i].ArmorType == _armor.Body.ArmorType)
+                    if (armorEquipmentCells[i].ArmorType == armor.ArmorType)
                     {
-                        armorEquipmentCells[i].FillCellInfo(_armor.Body);
-                    }
-                }
-            }
-            if (_armor.Hands != null)
-            {
-                for (int i = 0; i < armorEquipmentCells.Length; i++)
-                {
-                    if (armorEquipmentCells[i].ArmorType == _armor.Hands.ArmorType)
-                    {
-                        armorEquipmentCells[i].FillCellInfo(_armor.Hands);
-                    }
-                }
-            }
-            if (_armor.Head != null)
-            {
-                for (int i = 0; i < armorEquipmentCells.Length; i++)
-                {
-                    if (armorEquipmentCells[i].ArmorType == _armor.Head.ArmorType)
-                    {
-                        armorEquipmentCells[i].FillCellInfo(_armor.Head);
-                    }
-                }
-            }
-            if (_armor.Legs != null)
-            {
-                for (int i = 0; i < armorEquipmentCells.Length; i++)
-                {
-                    if (armorEquipmentCells[i].ArmorType == _armor.Legs.ArmorType)
-                    {
-                        armorEquipmentCells[i].FillCellInfo(_armor.Legs);
+                        armorEquipmentCells[i].FillCellInfo(armor);
                     }
                 }
             }
@@ -178,23 +147,18 @@ namespace SideScroller.Model.Inventory
 
         #endregion
 
-
         #region IListnerScreen
 
         public void ShowScreen()
         {
-            if (_characterMenu == null)
+            if (ScreenInterface.GetInstance().CurrentWindow is CharacterMenu)
             {
-                _characterMenu = ScreenInterface.GetInstance().CurrentWindow as CharacterMenu;
+                _equipmentUI = Object.FindObjectOfType<CharacterEquipmentUI>();
+                _inventoryUI = Object.FindObjectOfType<CharacterInventoryUI>();
 
-                if (_characterMenu is CharacterMenu)
-                {
-                    _equipmentUI = _characterMenu.EquipmentUI;
-                    _inventoryUI = _characterMenu.InventoryUI;
-                    _equipmentUI.EquipmentItemClick += OnEquipmentItemClick;
-                    _inventoryUI.InventoryItemClick += OnInventoryItemClick;
-                    _equipmentUI.EquipmentEnabledUI += CheckEquipment;
-                }
+                _equipmentUI.EquipmentEnabledUI += CheckEquipment;
+                _equipmentUI.EquipmentItemClick += OnEquipmentItemClick;
+                _inventoryUI.InventoryItemClick += OnInventoryItemClick;
             }
         }
 

@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e02215347edbb4438e2a4287090d4e0, type: 3}
   m_Name: BaseDropingItems
   m_EditorClassIdentifier: 
-  _armorTypes: 
-  _weaponTypes: 
+  _dropingItems:
+  - _armorType: 1
+    _weaponType: 0
+  - _armorType: 3
+    _weaponType: 0
+  - _armorType: 0
+    _weaponType: 2
+  - _armorType: 2
+    _weaponType: 0

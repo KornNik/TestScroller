@@ -1,23 +1,15 @@
-﻿using UnityEngine;
-using SideScroller.Data.Unit;
-using SideScroller.Helpers.Managers;
+﻿using SideScroller.Data.Unit;
 using SideScroller.Model.Item;
 
 namespace SideScroller.Model.Unit.Combat
 {
     class GunnerCombat : BaseCombat
     {
-
-        #region ClassLifeCycle
-
         public GunnerCombat(BaseCombatParameters unitCombatParameters, BaseUnit unitBehaviour) : base(unitCombatParameters, unitBehaviour)
         {
             _combatParameters = unitCombatParameters;
             _unitBehaviour = unitBehaviour;
         }
-
-        #endregion
-
 
         #region ICombat
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2924872546659989795}
   - component: {fileID: 9193335181642819139}
   - component: {fileID: 4255075498829990460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Prefabs_Items_Projectiles_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,6 +67,9 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 8793934290865637592}
   _projectileParameters: {fileID: 11400000, guid: 8cfb77923a40a264c901ce3a43cf4525, type: 2}
   _projectileRigidbody: {fileID: 4255075498829990460}
+  _collisionLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!50 &4255075498829990460
 Rigidbody2D:
   serializedVersion: 4
@@ -76,18 +79,18 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3173324472679562762}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &7293374851410788050
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4882216072621348040}
   - component: {fileID: 8793934290865637592}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,11 +161,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1451386559
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.7169812, g: 0.6920052, b: 0.32128873, a: 1}
+  m_Color: {r: 0.8584906, g: 0.30195305, b: 0.28751338, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1362603465
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: -1451386559
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 79a9e1fbcbceb1e41b79caf913211970, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621794137956679156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 576.1259, y: 312.9517, z: -2.544831}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -135,7 +135,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.4640554
 --- !u!114 &1370154857024073820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 621794137956679156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b265644dcf43f4c8185365848664f8, type: 3}
+  m_Script: {fileID: 11500000, guid: a346004a04c9bf04e8f02661e56f60cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 7764764463783207892}
@@ -159,16 +159,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621794137956679156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1219a4b975e65a5428912342e44eac97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimCollider: {fileID: 7764764463783207892}
   _collisionLayer:
     serializedVersion: 2
     m_Bits: 64
   _weapon: {fileID: 1370154857024073820}
+  _obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  LineOfFireBoxcastSize: {x: 0.1, y: 0.1}
 --- !u!1 &3585480823237149554
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3585480823237149554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.588, y: 0.2, z: 0}
+  m_LocalPosition: {x: 0.513, y: 0.114, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

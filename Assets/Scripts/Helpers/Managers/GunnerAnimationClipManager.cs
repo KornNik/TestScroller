@@ -3,6 +3,6 @@ namespace SideScroller.Helpers.Managers
 {
     static class GunnerAnimationClipManager
     {
-        public const string ATTACK = "GunnerAttack";
+        public const string ATTACK = "Attack";
     }
 }

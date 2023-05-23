@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7114657007903592163}
   - component: {fileID: 60433781707510575}
   - component: {fileID: 5410676999935191239}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Prefabs_Items_Armors_BooletProofCloack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2177014541661489505}
   - component: {fileID: 4049874713027924142}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,8 +135,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1451386559
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 76ce8c28e1fcd7b4ba85cbb5fe38c3a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

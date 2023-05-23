@@ -5,31 +5,14 @@ namespace SideScroller.Model.Item
 {
     abstract class Weapon : BaseItem, IDamager
     {
-        #region Fields
-
         [SerializeField] protected WeaponParameters _weaponParameters;
 
-        #endregion
-
-
-        #region Properties
-
         public WeaponParameters WeaponParameters => _weaponParameters;
-
-        #endregion
-
-
-        #region UnityMethods
 
         protected override void Awake()
         {
             base.Awake();
         }
-
-        #endregion
-
-
-        #region Methods
 
         public virtual void WeaponAttack(IDamageable damageable)
         {
@@ -43,7 +26,6 @@ namespace SideScroller.Model.Item
         {
             ItemCollider.radius = _weaponParameters.ScanWeaponRadius.GetValue();
         }
-        #endregion
 
 
         #region IDamager

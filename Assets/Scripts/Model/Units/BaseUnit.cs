@@ -22,6 +22,7 @@ namespace SideScroller.Model.Unit
         [SerializeField] protected Transform _unitModel;
         [SerializeField] protected Transform _attackArea;
         [SerializeField] protected Transform _inventoryTransform;
+        [SerializeField] protected Transform _weaponPlace;
 
 
         [SerializeField] protected BaseUnitParameters _unitParameters;
@@ -51,6 +52,7 @@ namespace SideScroller.Model.Unit
 
         public Transform AttackArea => _attackArea;
         public Transform InventoryTransform => _inventoryTransform;
+        public Transform WeaponPlace => _weaponPlace;
 
         public Transform UnitModel => _unitModel;
 

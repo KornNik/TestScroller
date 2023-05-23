@@ -57,12 +57,7 @@ namespace SideScroller.Model.Unit.AI
 
         private void MoveToPoint(Vector3 point)
         {
-            var heading = point - _unit.transform.position;
-            var sqrMagnitude = heading.sqrMagnitude;
-            if (!MathExtender.IsApproximatelyEqual(sqrMagnitude, _AIParameters.StopingDistance * _AIParameters.StopingDistance))
-            {
-                _unit.Movement.Move(point);
-            }
+            _unit.Movement.Move(point);
         }
         protected virtual void ChaseTarget(Vector3 targetPosition)
         {
@@ -96,7 +91,9 @@ namespace SideScroller.Model.Unit.AI
         }
         protected virtual bool IsAtStopingDistance(Vector3 destinationPoint, float stopingDistance)
         {
-            if (Vector3.Distance(destinationPoint, _unit.transform.position) <= stopingDistance)
+            var heading = destinationPoint - _unit.transform.position;
+            var sqrDistance = heading.sqrMagnitude;
+            if (sqrDistance <= stopingDistance * stopingDistance)
             {
                 return true;
             }

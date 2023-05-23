@@ -5,7 +5,7 @@ using SideScroller.Model.Item;
 
 namespace SideScroller.UI.Parts
 {
-    class CharacterInventoryUI : MonoBehaviour, IListenerScreen
+    class CharacterInventoryUI : MonoBehaviour
     {
         public Action<ItemCell[]> InventoryUIEnabled;
         public Action<BaseItem> InventoryItemClick;
@@ -13,7 +13,7 @@ namespace SideScroller.UI.Parts
         [SerializeField] private GridLayoutGroup _itemsPlace;
         [SerializeField] private ItemCell[] _itemsCellList;
 
-        private CharacterMenu _characterMenu;
+        private CharacterEquipmentUI _equipmentUI; 
         private int _emptyListCount;
 
 
@@ -28,21 +28,19 @@ namespace SideScroller.UI.Parts
             {
                 _itemsPlace = GetComponentInChildren<GridLayoutGroup>();
             }
+            _equipmentUI = FindObjectOfType<CharacterEquipmentUI>();
         }
 
         private void OnEnable()
         {
-            ScreenInterface.GetInstance().AddObserver(Types.ScreenTypes.InventoryMenu, this);
-
             InventoryUIEnabled?.Invoke(_itemsCellList);
-
+            _equipmentUI.EquipmentItemClick += OnEquipmentItemClick;
+            InventoryItemClick += OnInventoryItemClick;
         }
         private void OnDisable()
         {
             InventoryItemClick -= OnInventoryItemClick;
-            _characterMenu.EquipmentUI.EquipmentItemClick -= OnEquipmentItemClick;
-
-            ScreenInterface.GetInstance().RemoveObserver(Types.ScreenTypes.InventoryMenu, this);
+            _equipmentUI.EquipmentItemClick -= OnEquipmentItemClick;
         }
 
         #endregion
@@ -94,29 +92,6 @@ namespace SideScroller.UI.Parts
         private void OnEquipmentItemClick(BaseItem item)
         {
             FillItemCellInUI(item);
-        }
-
-        #endregion
-
-        #region IListnerScreen
-
-        public void ShowScreen()
-        {
-            if (_characterMenu == null)
-            {
-                _characterMenu = ScreenInterface.GetInstance().CurrentWindow as CharacterMenu;
-
-                if (_characterMenu is CharacterMenu)
-                {
-                    InventoryItemClick += OnInventoryItemClick;
-                    _characterMenu.EquipmentUI.EquipmentItemClick += OnEquipmentItemClick;
-                }
-            }
-        }
-
-        public void HideScreen()
-        {
-
         }
 
         #endregion

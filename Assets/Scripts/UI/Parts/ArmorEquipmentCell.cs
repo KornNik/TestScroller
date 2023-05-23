@@ -18,7 +18,7 @@ namespace SideScroller.UI.Parts
         {
             if (_item is BaseItem)
             {
-                _characterMenu.EquipmentUI.EquipmentItemClick?.Invoke(_item);
+                _equipmentUI.EquipmentItemClick?.Invoke(_item);
             }
         }
 

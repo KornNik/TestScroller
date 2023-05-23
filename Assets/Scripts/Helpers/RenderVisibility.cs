@@ -38,6 +38,15 @@ namespace SideScroller.Helpers
                 {
                     tempSpriteRenderer.enabled = status;
                 }
+                if (item.childCount >= 0)
+                {
+                    foreach (Transform subItem in item)
+                    {
+                        tempSpriteRenderer = subItem.GetComponentInChildren<SpriteRenderer>();
+                        tempSpriteRenderer.enabled = status;
+                    }
+                }
+
             }
         }
 

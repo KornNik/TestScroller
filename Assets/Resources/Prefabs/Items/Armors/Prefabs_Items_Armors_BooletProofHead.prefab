@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210237089087709566}
   - component: {fileID: 4200917248639827814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1451386559
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b1c82c33b6d85b7499dcfe7981c7710c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2211366047587600794}
   - component: {fileID: 5706747554633593563}
   - component: {fileID: 5486013878653805001}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Prefabs_Items_Armors_BooletProofHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

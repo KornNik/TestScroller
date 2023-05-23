@@ -60,6 +60,9 @@ namespace SideScroller.UI
                 case ScreenTypes.InventoryMenu:
                     _currentWindow = _screenFactory.GetInventoryMenu();
                     break;
+                case ScreenTypes.EndGameMenu:
+                    _currentWindow = _screenFactory.GetEndGameMenu();
+                    break;
                 default:
                     break;
             }
@@ -85,6 +88,11 @@ namespace SideScroller.UI
                     _screenFactory.GetPauseMenu().ShowUI += listenerScreen.ShowScreen;
                     _screenFactory.GetPauseMenu().HideUI += listenerScreen.HideScreen;
                     _screenFactory.GetPauseMenu().Hide();
+                    break;
+                case ScreenTypes.EndGameMenu:
+                    _screenFactory.GetEndGameMenu().ShowUI += listenerScreen.ShowScreen;
+                    _screenFactory.GetEndGameMenu().HideUI += listenerScreen.HideScreen;
+                    _screenFactory.GetEndGameMenu().Hide();
                     break;
                 case ScreenTypes.InventoryMenu:
                     _screenFactory.GetInventoryMenu().ShowUI += listenerScreen.ShowScreen;
@@ -114,6 +122,11 @@ namespace SideScroller.UI
                     _screenFactory.GetPauseMenu().ShowUI -= listenerScreen.ShowScreen;
                     _screenFactory.GetPauseMenu().HideUI -= listenerScreen.HideScreen;
                     _screenFactory.GetPauseMenu().Hide();
+                    break;
+                case ScreenTypes.EndGameMenu:
+                    _screenFactory.GetEndGameMenu().ShowUI -= listenerScreen.ShowScreen;
+                    _screenFactory.GetEndGameMenu().HideUI -= listenerScreen.HideScreen;
+                    _screenFactory.GetEndGameMenu().Hide();
                     break;
                 case ScreenTypes.InventoryMenu:
                     _screenFactory.GetInventoryMenu().ShowUI -= listenerScreen.ShowScreen;

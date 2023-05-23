@@ -1,5 +1,6 @@
 ﻿using SideScroller.Helpers.Save;
 using SideScroller.Helpers;
+using SideScroller.Helpers.Services;
 
 namespace SideScroller
 {
@@ -33,6 +34,10 @@ namespace SideScroller
         private void OnApplicationQuit()
         {
             if (!GameManager.Instance.IsLevelExist())
+            {
+                return;
+            }
+            else if (!Services.Instance.PlayerService.PlayerCharacter.UnitBoolStates.IsAlive)
             {
                 return;
             }

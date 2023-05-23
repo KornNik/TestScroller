@@ -28,7 +28,7 @@ namespace SideScroller.Model.Unit.Combat
         {
             _combatParameters = unitCombatParameters;
             _unitBehaviour = unitBehaviour;
-            _weaponTimer = _combatParameters.RechargeTime.BaseValue;
+            _weaponTimer = _combatParameters.RechargeTime.GetValue();
             _damagingObjects = new Collider2D[32];
         }
 

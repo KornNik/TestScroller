@@ -12,7 +12,6 @@ namespace SideScroller.UI
         #region Fields
 
         [SerializeField] private HealthBar _healthBar;
-        [SerializeField] private ControlButton _attackButton;
         [SerializeField] private Joystick _joystic;
 
         [SerializeField] private Button _inventoryButton;
@@ -29,7 +28,6 @@ namespace SideScroller.UI
 
         private void OnEnable()
         {
-            _attackButton.onClick.AddListener(OnAttackClick);
             _inventoryButton.onClick.AddListener(OnInventoryButtonDown);
             _pauseButton.onClick.AddListener(OnPauseButtonDown);
 
@@ -41,7 +39,6 @@ namespace SideScroller.UI
 
         private void OnDisable()
         {
-            _attackButton.onClick.RemoveListener(OnAttackClick);
             _inventoryButton.onClick.RemoveListener(OnInventoryButtonDown);
             _pauseButton.onClick.RemoveListener(OnPauseButtonDown);
 

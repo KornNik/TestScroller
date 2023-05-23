@@ -15,7 +15,6 @@ namespace SideScroller.Data.Unit
     {
         [SerializeField] private DropingItems[] _dropingItems; 
 
-
         public DropingItems GetRandomItem()
         {
             var randomValue = UnityEngine.Random.Range(0, _dropingItems.Length);

@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
+using SideScroller.Helpers.Managers;
 
 namespace SideScroller.Model.Item
 {
     class Bullet : Projectile
     {
-        #region UnityMethods
+        [SerializeField] private LayerMask _collisionLayer;
+
+        private LayerMask _playerLayer;
 
         protected override void Awake()
         {
             base.Awake();
+            _playerLayer = LayersManager.PlayerLayer;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -21,9 +25,6 @@ namespace SideScroller.Model.Item
 
             ReturnToPool();
         }
-
-        #endregion
-
 
         #region IDamager
 

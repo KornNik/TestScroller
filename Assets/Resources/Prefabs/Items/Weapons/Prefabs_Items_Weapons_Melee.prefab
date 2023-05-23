@@ -143,9 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3996867667201057337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7485bddba7c875a4091b0c26e3591e65, type: 3}
+  m_Script: {fileID: 11500000, guid: 178d2a95c0190074195de87f82a31c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 0}
+  _collider: {fileID: 197282219044569766}
   _spriteRenderer: {fileID: 6754467651848606277}
   _weaponParameters: {fileID: 11400000, guid: 82ff103901e63df46b9c15b1e1f3120d, type: 2}

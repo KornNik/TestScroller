@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7b424ee91c9df4cbffe1efe67d853b, type: 3}
   m_Name: LevelFirstParameters
   m_EditorClassIdentifier: 
-  _enemyCount: 3
   _NPCTypesArray: 010000000100000001000000
   _NPCPositions: []

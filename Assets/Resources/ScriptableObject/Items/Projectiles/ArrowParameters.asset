@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mass: {fileID: 11400000, guid: 68e34684c9d7faf46a4c1aff9a5984c6, type: 2}
   _value: 5
-  _name: Arrow
+  _name: Bullet
   _damage: {fileID: 11400000, guid: 4d96f41a8be6b1c4d9cedeb8ad12519b, type: 2}
   _penetration: {fileID: 11400000, guid: d667045fc6b8f6f45938b7841c7ab5ec, type: 2}
   _damageType: 0

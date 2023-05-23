@@ -15,7 +15,7 @@ TagManager:
   - Player
   - Wall
   - Item
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Characters
     uniqueID: 1362603465
+    locked: 0
+  - name: Items
+    uniqueID: 2843580737
     locked: 0
   - name: WorldSpaceUI
     uniqueID: 2383812879

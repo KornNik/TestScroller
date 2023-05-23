@@ -1,66 +1,62 @@
 ﻿using SideScroller.Model.Item;
+using SideScroller.Helpers.Types;
 
 namespace SideScroller.Model.Inventory
 {
+    struct CurrentArmor
+    {
+        public ArmorPlaceTypes ArmorPlace;
+        public CommonArmor Armor;
+    }
     struct ArmorPlaces
     {
         #region MyRegion
 
-        private CommonArmor _head;
-        private CommonArmor _body;
-        private CommonArmor _legs;
-        private CommonArmor _hands;
+        private CurrentArmor _head;
+        private CurrentArmor _body;
+        private CurrentArmor _legs;
+        private CurrentArmor _hands;
 
         #endregion
 
+        public void SetArmor(CommonArmor armor)
+        {
+            switch (armor.ArmorType)
+            {
+                case ArmorPlaceTypes.Hands:
+                    _hands.Armor = armor;
+                    break;
+                case ArmorPlaceTypes.Legs:
+                    _legs.Armor = armor;
+                    break;
+                case ArmorPlaceTypes.Body:
+                    _body.Armor = armor;
+                    break;
+                case ArmorPlaceTypes.Head:
+                    _head.Armor = armor;
+                    break;
+                default:
 
-        #region Properties
+                    break;
+            }
+        }
 
-        public CommonArmor Head
+        public CommonArmor GetArmor(ArmorPlaceTypes armorPlace)
         {
-            get { return _head; }
-            set
+            switch (armorPlace)
             {
-                if (_head.ArmorType == Helpers.Types.ArmorPlaceTypes.Head)
-                {
-                    _head = value;
-                }
+                case ArmorPlaceTypes.Hands:
+                    return _hands.Armor;
+                case ArmorPlaceTypes.Legs:
+                    return _legs.Armor;
+                case ArmorPlaceTypes.Body:
+                    return _body.Armor;
+                case ArmorPlaceTypes.Head:
+                    return _head.Armor;
+                default:
+                    return null;
             }
         }
-        public CommonArmor Body
-        {
-            get { return _body; }
-            set
-            {
-                if (_body.ArmorType == Helpers.Types.ArmorPlaceTypes.Body)
-                {
-                    _body = value;
-                }
-            }
-        }
-        public CommonArmor Legs
-        {
-            get { return _legs; }
-            set
-            {
-                if (_legs.ArmorType == Helpers.Types.ArmorPlaceTypes.Legs)
-                {
-                    _legs = value;
-                }
-            }
-        }
-        public CommonArmor Hands
-        {
-            get { return _hands; }
-            set
-            {
-                if (_hands.ArmorType == Helpers.Types.ArmorPlaceTypes.Hands)
-                {
-                    _hands = value;
-                }
-            }
-        }
-        #endregion
 
     }
 }

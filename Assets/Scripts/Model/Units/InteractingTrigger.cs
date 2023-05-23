@@ -25,7 +25,6 @@ namespace SideScroller.Model.Unit
             }
 
             _interactableLayer = LayerMask.NameToLayer(ITEM_LAYER_NAME);
-            _triggerCollider.radius = _player.Parameters.InteractDistance;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

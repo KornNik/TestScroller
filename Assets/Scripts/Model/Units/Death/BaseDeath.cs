@@ -5,7 +5,7 @@ namespace SideScroller.Model.Unit.Death
     class BaseDeath
     {
 
-        private BaseUnit _unit;
+        protected BaseUnit _unit;
 
 
         #region ClassLifeCycle
@@ -29,19 +29,21 @@ namespace SideScroller.Model.Unit.Death
 
         #region Methods
 
-        public void Dying()
+        public virtual void Dying()
         {
             RenderVisibility.SpriteRenderVisibilityChange(_unit.UnitModel, false);
             ColliderEnabler.ColliderEnabledChanger(_unit.transform, _unit.UnitCollider, false);
-            _unit.UnitRigidbody.isKinematic = true;
+            _unit.UnitRigidbody.simulated = false;
             _unit.UnitBoolStates.IsDead = true;
+            _unit.enabled = false;
         }
-        public void Recover()
+        public virtual void Recover()
         {
             RenderVisibility.SpriteRenderVisibilityChange(_unit.UnitModel, true);
             ColliderEnabler.ColliderEnabledChanger(_unit.transform, _unit.UnitCollider, true);
-            _unit.UnitRigidbody.isKinematic = false;
+            _unit.UnitRigidbody.simulated = true;
             _unit.UnitBoolStates.IsDead = false;
+            _unit.enabled = true;
         }
 
         #endregion

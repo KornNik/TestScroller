@@ -16,6 +16,7 @@ namespace SideScroller.UI
         private MainMenu _mainMenu;
         private PauseMenu _pauseMenu;
         private CharacterMenu _inventoryMenu;
+        private EndGameMenu _endGameMenu;
         private InventoryParameters _inventoryParameters;
 
         #endregion
@@ -64,6 +65,15 @@ namespace SideScroller.UI
                 _pauseMenu = Object.Instantiate(resources, _canvas.transform.position, Quaternion.identity, _canvas.transform);
             }
             return _pauseMenu;
+        }
+        public EndGameMenu GetEndGameMenu()
+        {
+            if (_endGameMenu == null)
+            {
+                var resources = CustomResources.Load<EndGameMenu>(ScreenAssetPath.Screens[ScreenTypes.EndGameMenu].Screen);
+                _endGameMenu = Object.Instantiate(resources, _canvas.transform.position, Quaternion.identity, _canvas.transform);
+            }
+            return _endGameMenu;
         }
 
         public CharacterMenu GetInventoryMenu()

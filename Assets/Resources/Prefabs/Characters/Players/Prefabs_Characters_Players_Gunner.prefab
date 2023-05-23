@@ -90,9 +90,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitCollider: {fileID: 4849798020410076621}
   _unitRigidbody: {fileID: 5895082407358569436}
-  _unitModel: {fileID: 612248818072234474}
+  _unitModel: {fileID: 2989592291512914187}
   _attackArea: {fileID: 6135095528699335005}
   _inventoryTransform: {fileID: 4313290757832045370}
+  _weaponPlace: {fileID: 7839656973415333147}
   _unitParameters: {fileID: 11400000, guid: abe70fc657f700e47b8bc4c8e52dc1f1, type: 2}
   _inventoryParameters: {fileID: 11400000, guid: 0c5aa12b58d91004697e96bfa31b31cf, type: 2}
   _unitCombatParameters: {fileID: 11400000, guid: 7ad5a2f9116608d49afcfe4311f97a9a, type: 2}
@@ -135,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5920402082606156862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.78, z: 0}
+  m_LocalPosition: {x: 0, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,7 +172,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 0.6232672
 --- !u!1 &6294802042154053472
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6294802042154053472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.008, y: -0.617, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,14 +227,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6634058671684080914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.076, y: -0.158, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7072919, w: 0.7069217}
+  m_LocalPosition: {x: -0.014, y: -0.304, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1308950344305125088}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.03}
 --- !u!1 &7157579256057537164
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,5 +638,10 @@ MonoBehaviour:
 --- !u!4 &1308950344305125088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1410871882402048781, guid: 5b93d86bcc7216a418710cb2f5fb9a94, type: 3}
+  m_PrefabInstance: {fileID: 125608102371757549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2989592291512914187 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2937215288503442662, guid: 5b93d86bcc7216a418710cb2f5fb9a94, type: 3}
   m_PrefabInstance: {fileID: 125608102371757549}
   m_PrefabAsset: {fileID: 0}

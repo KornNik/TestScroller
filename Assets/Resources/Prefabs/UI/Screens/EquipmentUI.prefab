@@ -186,13 +186,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: Hands
       objectReference: {fileID: 0}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _itemName
       value: 
       objectReference: {fileID: 2007409142650921714}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _armorType
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _itemImage
@@ -202,6 +210,10 @@ PrefabInstance:
       propertyPath: _baseSpriteIcon
       value: 
       objectReference: {fileID: 21300000, guid: 240ae01ad665c6d4798249cbec763ce8, type: 3}
+    - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: _emptySpriteIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
     - target: {fileID: 8367769852686059775, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: m_Pivot.x
       value: -0.000000014901161
@@ -309,7 +321,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 372784852799801818}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -341,13 +353,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: Body
       objectReference: {fileID: 0}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _itemName
       value: 
       objectReference: {fileID: 1282838965911692498}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _armorType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _itemImage
@@ -357,6 +377,10 @@ PrefabInstance:
       propertyPath: _baseSpriteIcon
       value: 
       objectReference: {fileID: 21300000, guid: 240ae01ad665c6d4798249cbec763ce8, type: 3}
+    - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: _emptySpriteIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
     - target: {fileID: 8367769852686059775, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -464,7 +488,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1097283045907566586}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -496,6 +520,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: Head
       objectReference: {fileID: 0}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _itemName
       value: 
@@ -512,6 +548,10 @@ PrefabInstance:
       propertyPath: _baseSpriteIcon
       value: 
       objectReference: {fileID: 21300000, guid: 240ae01ad665c6d4798249cbec763ce8, type: 3}
+    - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: _emptySpriteIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
     - target: {fileID: 8367769852686059775, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -608,7 +648,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3069120277262113347}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -735,6 +775,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7521698293010488125, guid: 26da3c0935692954aa54318788a5e417, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521698293010488125, guid: 26da3c0935692954aa54318788a5e417, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
+    - target: {fileID: 7521698293010488125, guid: 26da3c0935692954aa54318788a5e417, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7625942677254414976, guid: 26da3c0935692954aa54318788a5e417, type: 3}
+      propertyPath: _emptySpriteIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: a689281f545979940b5cedad12ec31a8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26da3c0935692954aa54318788a5e417, type: 3}
 --- !u!114 &3557368442473870775 stripped
@@ -866,13 +922,21 @@ PrefabInstance:
       propertyPath: m_Text
       value: Legs
       objectReference: {fileID: 0}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
+    - target: {fileID: 2389482920174045879, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _itemName
       value: 
       objectReference: {fileID: 8899037280012113886}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _armorType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: _itemImage
@@ -882,6 +946,10 @@ PrefabInstance:
       propertyPath: _baseSpriteIcon
       value: 
       objectReference: {fileID: 21300000, guid: 240ae01ad665c6d4798249cbec763ce8, type: 3}
+    - target: {fileID: 6610501509700598292, guid: d41dba7dde89a9346b30601e89702697, type: 3}
+      propertyPath: _emptySpriteIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c22439f7b2eadb41b70e5385d667660, type: 3}
     - target: {fileID: 8367769852686059775, guid: d41dba7dde89a9346b30601e89702697, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -994,7 +1062,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7316204669075176694}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

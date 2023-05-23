@@ -52,6 +52,14 @@ namespace SideScroller.Helpers.AssetsPath
                 }
             },
             {
+                ScreenTypes.EndGameMenu,
+                new ScreenPath
+                {
+                    Screen = "Prefabs/UI/Screens/Prefabs_UI_Screens_EndGameMenu",
+                    Elements = new Dictionary<ScreenElementTypes, string>()
+                }
+            },
+            {
                 ScreenTypes.InventoryMenu,
                 new ScreenPath
                 {

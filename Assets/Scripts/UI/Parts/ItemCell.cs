@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace SideScroller.UI.Parts
 {
-    class ItemCell : MonoBehaviour, IPointerClickHandler, IListenerScreen
+    class ItemCell : MonoBehaviour, IPointerClickHandler
     {
         #region Fields
 
@@ -15,7 +15,9 @@ namespace SideScroller.UI.Parts
 
         [SerializeField] protected BaseItem _item;
 
-        protected CharacterMenu _characterMenu;
+        protected CharacterEquipmentUI _equipmentUI;
+        protected CharacterInventoryUI _inventoryUI;
+
         protected bool _isEmpty = true;
 
         #endregion
@@ -31,14 +33,19 @@ namespace SideScroller.UI.Parts
 
         #region UnityMethods
 
+        private void Awake()
+        {
+            _equipmentUI = FindObjectOfType<CharacterEquipmentUI>();
+            _inventoryUI = FindObjectOfType<CharacterInventoryUI>();
+        }
+
         private void OnEnable()
         {
-            ScreenInterface.GetInstance().AddObserver(Types.ScreenTypes.InventoryMenu, this);
+
         }
 
         private void OnDisable()
-        {
-            ScreenInterface.GetInstance().RemoveObserver(Types.ScreenTypes.InventoryMenu, this);
+        { 
         }
 
         #endregion
@@ -84,25 +91,8 @@ namespace SideScroller.UI.Parts
         {
             if(_item is BaseItem)
             {
-                _characterMenu.InventoryUI.InventoryItemClick?.Invoke(_item);
+                _inventoryUI.InventoryItemClick?.Invoke(_item);
             }
-        }
-
-        #endregion
-
-        #region IListnerScreen
-
-        public void ShowScreen()
-        {
-            if (_characterMenu == null)
-            {
-                _characterMenu = ScreenInterface.GetInstance().CurrentWindow as CharacterMenu;
-            }
-        }
-
-        public void HideScreen()
-        {
-            
         }
 
         #endregion

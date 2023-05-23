@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7266100132922280762}
   - component: {fileID: 3697049840493983720}
   - component: {fileID: 3310723813182053083}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Prefabs_Items_Armors_BooletProofLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1461665352478638836}
   - component: {fileID: 5845061540607611479}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,8 +135,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1451386559
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3ff5eb0c87876bb45ba183bfd2ed5fd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

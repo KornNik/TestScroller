@@ -1,4 +1,6 @@
-﻿using SideScroller.UI;
+﻿using UnityEngine;
+using SideScroller.UI;
+using SideScroller.UI.Types;
 using SideScroller.Helpers;
 using SideScroller.UI.Parts;
 using SideScroller.Model.Item;
@@ -10,9 +12,9 @@ namespace SideScroller.Model.Inventory
     {
         private BaseUnit _unit;
         private BaseItem[] _itemsInBag;
-        private CharacterMenu _characterMenu;
-        private CharacterInventoryUI _inventoryUI;
-        private CharacterEquipmentUI _equipmentUI;
+
+        protected CharacterEquipmentUI _equipmentUI;
+        protected CharacterInventoryUI _inventoryUI;
 
         public BaseItem[] ItemList => _itemsInBag;
 
@@ -23,14 +25,12 @@ namespace SideScroller.Model.Inventory
         {
             _unit = unit;
             _itemsInBag = new BaseItem[_unit.InventoryParameters.InventorySize];
-
-            ScreenInterface.GetInstance().AddObserver(UI.Types.ScreenTypes.InventoryMenu, this);
+            ScreenInterface.GetInstance().AddObserver(ScreenTypes.InventoryMenu, this);
         }
 
         ~BaseInventory()
         {
-           ScreenInterface.GetInstance().RemoveObserver(UI.Types.ScreenTypes.InventoryMenu, this);
-
+            ScreenInterface.GetInstance().RemoveObserver(ScreenTypes.InventoryMenu, this);
             _equipmentUI.EquipmentItemClick -= OnEquipmentItemClick;
             _inventoryUI.InventoryItemClick -= OnInventoryItemClick;
             _inventoryUI.InventoryUIEnabled -= CheckInventory;
@@ -96,27 +96,25 @@ namespace SideScroller.Model.Inventory
 
         #endregion
 
+
         #region IListnerScreen
 
         public void ShowScreen()
         {
-            if (_characterMenu == null)
+            if (ScreenInterface.GetInstance().CurrentWindow is CharacterMenu)
             {
-                _characterMenu = ScreenInterface.GetInstance().CurrentWindow as CharacterMenu;
+                _equipmentUI = Object.FindObjectOfType<CharacterEquipmentUI>();
+                _inventoryUI = Object.FindObjectOfType<CharacterInventoryUI>();
 
-                if (_characterMenu is CharacterMenu)
-                {
-                    _inventoryUI = _characterMenu.InventoryUI;
-                    _equipmentUI = _characterMenu.EquipmentUI;
-                    _equipmentUI.EquipmentItemClick += OnEquipmentItemClick;
-                    _inventoryUI.InventoryItemClick += OnInventoryItemClick;
-                    _inventoryUI.InventoryUIEnabled += CheckInventory;
-                }
+                _equipmentUI.EquipmentItemClick += OnEquipmentItemClick;
+                _inventoryUI.InventoryItemClick += OnInventoryItemClick;
+                _inventoryUI.InventoryUIEnabled += CheckInventory;
             }
         }
 
         public void HideScreen()
         {
+
         }
 
         #endregion

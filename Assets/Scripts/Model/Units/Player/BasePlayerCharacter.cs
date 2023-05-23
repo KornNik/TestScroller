@@ -1,4 +1,5 @@
 ﻿using SideScroller.Model.Unit.Movement;
+using SideScroller.Model.Unit.Death;
 
 namespace SideScroller.Model.Unit
 {
@@ -8,6 +9,7 @@ namespace SideScroller.Model.Unit
         {
             base.Awake();
             _movement = new PlayerMovement(_unitMovementParameters, this);
+            _death = new PlayerDeath(this);
         }
     }
 }
